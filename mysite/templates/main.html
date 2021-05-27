@@ -2,9 +2,63 @@
 {% load static %}
 
 {%block content%}
+	<nav class="navbar navbar-expand-lg">
+	  <div class="container-fluid">
+	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	      <span class="navbar-toggler-icon"></span>
+	    </button>
+
+	    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+	      <ul class="navbar-nav ml-auto mb-2 mb-lg-0 navbar-brand">
+
+	      	{% if not is_speruser %}
+
+	      		<li class="nav-item">
+		          <a class="nav-link active" aria-current="page" href="{% url 'apply' %}">Apply to be supper user</a>
+		        </li>
+
+	      	{% endif %}
+
+
+	      	{% if is_speruser %}
+
+	      		<li class="nav-item">
+		          <a class="nav-link active" aria-current="page" href="{% url 'de' %}">See demande</a>
+		        </li>
+
+	      	{% endif %}
+
+
+	      	{% if is_true %}
+		        <li class="nav-item">
+		          <a class="nav-link active" aria-current="page" href="{% url 'switch' %}">Switsh to Gerant</a>
+		        </li>
+		    {% endif %}
+
+		    {% if not is_true %}
+		    	<li class="nav-item">
+		          <a class="nav-link active" aria-current="page" href="{% url 'switch' %}">Switsh to customer</a>
+		    	</li>
+
+		    {% endif %}
+		    
+
+	        <li class="nav-item">
+	          <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+	        </li>
+	        
+	        
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
+
+
 
 	<div class="content">
-		<h1 class="heading">Hello world!</h1>
+		<h1 class="heading">Hello world!</h1>	
+		<div>Your group is {% for groupe in name %} {{groupe}} {%endfor%} </div>
 	</div>
 	
 	
