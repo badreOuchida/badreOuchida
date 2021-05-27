@@ -1,0 +1,9 @@
+asgiref==3.3.4
+cycler==0.10.0
+Django==3.0.4
+psycopg2==2.8.6
+pytz==2021.1
+six==1.16.0
+sqlparse==0.4.1
+waitress==2.0.0
+whitenoise==5.2.0
